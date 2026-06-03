@@ -22,7 +22,7 @@ Once running, open `http://localhost:8000/docs` in your browser to interact with
 
 ## Files
 
-`similarity.py` is the core engine — it loads the dataset, builds the FAISS index at startup, and exposes the `find_similar_products()` function. `app.py` wraps that function in a FastAPI endpoint. `Dockerfile` and `k8s.yaml` handle containerization and Kubernetes deployment with 2 replicas and health checks.
+`similarity.py` is the core engine: it loads the dataset, builds the FAISS index at startup, and exposes the `find_similar_products()` function. `app.py` wraps that function in a FastAPI endpoint. `Dockerfile` and `k8s.yaml` handle containerization and Kubernetes deployment with 2 replicas and health checks.
 
 ---
 
@@ -30,7 +30,7 @@ Once running, open `http://localhost:8000/docs` in your browser to interact with
 
 ### Data Exploration
 
-Before writing any code, I explored the dataset to understand what fields were actually usable. The spec mentions `color` and `weight` as features, but neither exists in practice — `color` is missing entirely from the dataset, and every `weight` value is `999999999`, which is a null sentinel. The fields I ended up using were `meta_keywords`, `sales_price`, `rating`, `brand`, and `parent___child_category__all`.
+Before writing any code, I explored the dataset to understand what fields were actually usable. The spec mentions `color` and `weight` as features, but neither exists in practice. `color` is missing entirely from the dataset, and every `weight` value is `999999999`, which is a null sentinel. The fields I ended up using were `meta_keywords`, `sales_price`, `rating`, `brand`, and `parent___child_category__all`.
 
 ### Features
 
