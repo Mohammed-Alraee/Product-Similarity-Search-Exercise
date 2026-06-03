@@ -10,7 +10,9 @@ Install the dependencies, unzip the dataset, then start the server.
 
 ```bash
 pip install -r requirements.txt
-cd data && unzip archive.zip
+cd data
+Expand-Archive -Path archive.zip -DestinationPath .
+cd ..
 uvicorn app:app --reload
 ```
 
